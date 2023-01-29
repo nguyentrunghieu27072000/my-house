@@ -22,51 +22,13 @@ export class myBlog1665249324723 implements MigrationInterface {
             length: '50',
           },
           {
-            name: 'moneyTotal',
-            type: 'float',
-            isNullable: false,
-          },
-          {
-            name: 'created_at',
-            type: 'timestamp',
-            default: 'now()',
-          },
-          {
-            name: 'updated_at',
-            type: 'timestamp',
-            default: 'now()',
-          },
-        ],
-      }),
-      true,
-    );
-
-    await queryRunner.createTable(
-      new Table({
-        name: 'account',
-        columns: [
-          {
-            name: 'id',
-            type: 'uuid',
-            isPrimary: true,
-            isUnique: true,
-            generationStrategy: 'uuid',
-            default: `uuid_generate_v4()`,
-          },
-          {
-            name: 'userId',
-            type: 'varchar',
-            length: '50',
-          },
-          {
             name: 'password',
             type: 'varchar',
-            length: '255',
           },
           {
             name: 'UserIp',
             type: 'varchar',
-            length: '50',
+            isNullable: true,
           },
           {
             name: 'role',
@@ -75,7 +37,17 @@ export class myBlog1665249324723 implements MigrationInterface {
             isNullable: true,
           },
           {
-            name: 'created_at',
+            name: 'moneyTotal',
+            type: 'float',
+            isNullable: false,
+          },
+          {
+            name: 'createdAt',
+            type: 'timestamp',
+            default: 'now()',
+          },
+          {
+            name: 'updatedAt',
             type: 'timestamp',
             default: 'now()',
           },
@@ -107,7 +79,7 @@ export class myBlog1665249324723 implements MigrationInterface {
             default: 0,
           },
           {
-            name: 'created_at',
+            name: 'createdAt',
             type: 'timestamp',
             default: 'now()',
           },
@@ -142,12 +114,12 @@ export class myBlog1665249324723 implements MigrationInterface {
             type: 'float',
           },
           {
-            name: 'created_at',
+            name: 'createdAt',
             type: 'timestamp',
             default: 'now()',
           },
           {
-            name: 'updated_at',
+            name: 'updatedAt',
             type: 'timestamp',
             default: 'now()',
           },
@@ -159,7 +131,6 @@ export class myBlog1665249324723 implements MigrationInterface {
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropTable('user');
-    await queryRunner.dropTable('account');
     await queryRunner.dropTable('deposit');
     await queryRunner.dropTable('shopping');
   }

@@ -14,6 +14,7 @@ import { ConfigModule } from '@nestjs/config';
 import { typeOrmConfig } from './config/typeorm.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { LoggerMiddleware } from './middleware/logger.middleware';
+import { AuthController } from './auth/auth.controller';
 
 @Module({
   imports: [
@@ -31,8 +32,6 @@ import { LoggerMiddleware } from './middleware/logger.middleware';
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer
-      .apply(LoggerMiddleware)
-      .forRoutes({ path: '.', method: RequestMethod.ALL });
+    consumer.apply(LoggerMiddleware).forRoutes(AuthController);
   }
 }

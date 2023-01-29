@@ -17,6 +17,5 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
-    "assets": [{"include": "../src/config/*.yaml", "outDir": "./dist/config"}]
   },
 }
